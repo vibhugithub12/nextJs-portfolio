@@ -25,11 +25,11 @@ const expeienceRefInView=useInView(expeienceRef,{once:true,margin:"-50px"})
                     {/* Biography container */}
                     <div className="flex flex-col gap-12 justify-center">
                         {/* Biograpy Title */}
-                        <h1 className="font-bold text-2xl">Biography</h1>
+                        <h1 className="font-bold text-2xl">About Me</h1>
                         {/* Biograpy Description*/}
-                        <p className="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat blanditiis distinctio mollitia sed rem nemo veniam atque deleniti quos quae optio doloribus fuga non praesentium ea aut eum, consequuntur voluptatem laudantium id tempora aliquam quaerat maxime. Harum dolorem adipisci amet.</p>
+                        <p className="text-lg">I’m a Full Stack Developer with expertise in creating dynamic, responsive web applications. Skilled in both front-end and back-end development, I use technologies like React, Next.js, and Node.js to build seamless user experiences. Passionate about coding and continuous learning, I strive to deliver high-quality, innovative solutions.</p>
                         {/* Biography quote */}
-                        <span className="italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, voluptatibus.</span>
+                        <span className="italic">Bringing ideas to life, one piece of code at a time..</span>
                         {/* Biography Sign */}
                         <div className="self-end">
                             <svg width="507" height="273" viewBox="0 0 507 273" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ const expeienceRefInView=useInView(expeienceRef,{once:true,margin:"-50px"})
                             <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">Expressjs</div>
                             <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">Nestjs</div>
                             <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">AWS</div>
-                            <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">API</div>
+                            <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">APIs</div>
                             <div className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">Git-Github/Gitlab</div>
                         </motion.div>
                         {/* Skill scroll SVG */}

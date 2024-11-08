@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import {motion} from "framer-motion";
+import Link from 'next/link';
 
 const Homepage = () => {
   return(
@@ -20,8 +21,12 @@ const Homepage = () => {
       <p className="md:text-xl">Turning your dream website into a reality with the latest techonology and precision.</p>
       {/* Buttons */}
       <div className="flex w-full gap-4 justify-center lg:justify-start">
+      <Link href="/portfolio">
         <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">View my work</button>
+        </Link>
+        <Link href="/contact">
         <button className="p-4 rounded-lg ring-1 ring-black ">Contact me</button>
+        </Link>
       </div>
     </div>
   </div>
