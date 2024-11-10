@@ -6,15 +6,44 @@ import emailjs from "@emailjs/browser";
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const text = "Say Hello";
 
   const form = useRef();
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
+    setErrorMessage("");
 
+    // Validation checks
+    if (!message.trim()) {
+      setError(true);
+      setErrorMessage("Message cannot be empty.");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError(true);
+      setErrorMessage("Email cannot be empty.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError(true);
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Sending email if all validations pass
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -26,9 +55,12 @@ const ContactPage = () => {
         () => {
           setSuccess(true);
           form.current.reset();
+          setEmail("");
+          setMessage("");
         },
         () => {
           setError(true);
+          setErrorMessage("Something went wrong!");
         }
       );
   };
@@ -72,17 +104,18 @@ const ContactPage = () => {
             name="user_message"
             type="text"
             className="bg-transparent border-b-2 border-b-black outline-none"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Your message"
           />
-          {/* <textarea
-            rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
-            name="user_message"
-          /> */}
           <span>My mail address is:</span>
           <input
             name="user_email"
-            type="text"
+            type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email"
           />
           <span>Regards</span>
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
@@ -95,7 +128,7 @@ const ContactPage = () => {
           )}
           {error && (
             <span className="text-red-600 font-semibold">
-              Something went wrong!
+              {errorMessage}
             </span>
           )}
         </form>
